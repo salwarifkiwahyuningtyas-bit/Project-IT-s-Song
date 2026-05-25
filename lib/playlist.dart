@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/daftarplaylist.dart';
-import 'package:flutter_application_2/dbHelper.dart';
 import 'package:flutter_application_2/top3.dart';
 import 'package:flutter_application_2/homepage.dart';
 import 'package:flutter_application_2/akun.dart';
@@ -15,21 +14,6 @@ class IsiPlaylist extends StatefulWidget {
 
 class _IsiPlaylistState extends State<IsiPlaylist> {
   int selectedIndex = 1;
-  List<Map<String, dynamic>> playlistData = [];
-
-  @override
-void initState() {
-  super.initState();
-  loadPlaylist();
-}
-
-Future<void> loadPlaylist() async {
-  final data = await DatabaseHelper.getPlaylist();
-
-  setState(() {
-    playlistData = data;
-  });
-}
 
   @override
   Widget build(BuildContext context) {
@@ -99,14 +83,30 @@ Future<void> loadPlaylist() async {
                     borderRadius: BorderRadius.circular(1),
 
                     child: Image.asset(
-                      'assets/love pulse.jpeg',
-                      width: 290,
-                      height: 280,
+                      'assets/boynextdoor2.jpeg',
+                      width: 250,
+                      height: 250,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.edit, size: 25, color: const Color.fromARGB(255, 134, 21, 21))),
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.shuffle, size: 25, color: const Color.fromARGB(255, 134, 21, 21))),
+                    IconButton(onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => Playsong()));
+                    }, icon: const Icon(Icons.play_circle_fill, size: 40, color: const Color.fromARGB(255, 134, 21, 21))),
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_border_outlined, size: 25, color: const Color.fromARGB(255, 134, 21, 21))),
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.download, size: 25, color: const Color.fromARGB(255, 134, 21, 21))),
+                  ],
+                ),
+              )
             ],
           ),
         ),

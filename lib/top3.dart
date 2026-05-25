@@ -110,7 +110,7 @@ class _TopArtPageState extends State<TopArtPage> {
               const SizedBox(height: 30),
 
               artistCard(
-                image: 'assets/boy.jpg',
+                image: 'assets/boynextdoor2.jpeg',
                 title: 'BOYNEXTDOOR',
                 song: 'Serenade',
               ),
@@ -118,7 +118,7 @@ class _TopArtPageState extends State<TopArtPage> {
               const SizedBox(height: 30),
 
               artistCard(
-                image: 'assets/taylor.png',
+                image: 'assets/taylorswift.jpg',
                 title: 'Taylor Swift',
                 song: 'Blank Space',
               ),
@@ -126,7 +126,7 @@ class _TopArtPageState extends State<TopArtPage> {
               const SizedBox(height: 30),
 
               artistCard(
-                image: 'assets/trea.jpg',
+                image: 'assets/treasure2.jpeg',
                 title: 'TREASURE',
                 song: 'Better Than Me',
               ),

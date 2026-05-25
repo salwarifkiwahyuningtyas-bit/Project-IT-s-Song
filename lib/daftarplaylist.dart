@@ -9,291 +9,440 @@ class JenisPlaylist extends StatefulWidget {
   const JenisPlaylist({super.key});
 
   @override
-  State<JenisPlaylist> createState() => _JenisPlaylist();
+  State<JenisPlaylist> createState() => _JenisPlaylistState();
 }
 
-class _JenisPlaylist extends State<JenisPlaylist> {
+class _JenisPlaylistState extends State<JenisPlaylist> {
   int selectedIndex = 1;
   int selectedButton = 0;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+      backgroundColor: const Color(0xFFFFFEE0),
+
+      appBar: AppBar(
         backgroundColor: const Color(0xFFFFFEE0),
+        elevation: 0,
+        centerTitle: true,
+        toolbarHeight: 80,
 
-        appBar: AppBar(
-          backgroundColor: const Color(0xFFFFFEE0),
-          elevation: 0,
-          centerTitle: true,
-          toolbarHeight: 80,
-
-          title: const Padding(
-            padding: EdgeInsets.only(top: 15),
-            child: Text(
-              "IT's SONG",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 15),
+          child: Text(
+            "IT's SONG",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
+      ),
 
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
 
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                width: 280,
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
 
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.black),
-                ),
-                child: const Center(
-                  child: Text(
-                    "My Playlist",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                    ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              width: 280,
+
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black),
+              ),
+
+              child: const Center(
+                child: Text(
+                  "My Playlist",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
               ),
+            ),
 
-              const SizedBox(height: 30),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: selectedButton == 1 ? const Color.fromARGB(255, 148, 52, 45) :const Color(0xFFFFFEE0),
-                      foregroundColor: selectedButton == 1 ? Colors.white : Colors.black,
-                      side: const BorderSide(
-                        color: Colors.black,
-                        width: 1,
-                      ),
-                    ),
-
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 1;
-                      });
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => TopArtPage()));
-                    },
-                    child: const Text("IT's Artist"),
-                  ),
-
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: selectedButton == 0 ? const Color.fromARGB(255, 148, 52, 45) : const Color(0xFFFFFEE0),
-                      foregroundColor: selectedButton == 0 ? Colors.white : Colors.black,
-                      side: const BorderSide(
-                        color: Colors.black,
-                        width: 1,
-                      ),
-                    ),
-
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 0;
-                      });
-                    },
-
-                    child: const Text("IT's Playlist"),
-                  ),
-                ],
-              ),
             const SizedBox(height: 30),
-          Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 1),
-                child: Image.asset('assets/love pulse.jpeg',
-                width: 100),
-              )
-            ],
-          )
-            ],
-          ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: selectedButton == 1
+                        ? const Color.fromARGB(255, 148, 52, 45)
+                        : const Color(0xFFFFFEE0),
+
+                    foregroundColor: selectedButton == 1
+                        ? Colors.white
+                        : Colors.black,
+
+                    side: const BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 1;
+                    });
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const TopArtPage(),
+                      ),
+                    );
+                  },
+
+                  child: const Text("IT's Artist"),
+                ),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: selectedButton == 0
+                        ? const Color.fromARGB(255, 148, 52, 45)
+                        : const Color(0xFFFFFEE0),
+
+                    foregroundColor: selectedButton == 0
+                        ? Colors.white
+                        : Colors.black,
+
+                    side: const BorderSide(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 0;
+                    });
+                  },
+
+                  child: const Text("IT's Playlist"),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 30),
+
+            playlistCard(
+              context: context,
+              image: 'assets/boynextdoor2.jpeg',
+              title: 'buat galau',
+              artis: 'Playlist By AntekAntekAsing',
+              durasi: '30 menit - 170 songs',
+            ),
+
+            const SizedBox(height: 15),
+
+            playlistCard(
+              context: context,
+              image: 'assets/boynextdoor2.jpeg',
+              title: 'Night drive vibes',
+              artis: 'Playlist By AntekAntekAsing',
+              durasi: '15 menit - 80 songs',
+            ),
+            const SizedBox(height: 15),
+
+            playlistCard(
+              context: context, 
+              image: 'assets/boynextdoor2.jpeg', 
+              title: 'Buat nyuci piring', 
+              artis: 'Playlist By HidupJokoOui', 
+              durasi: '1 hour - 50 songs'
+              ),
+          ],
+        ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 148, 52, 45),
+        foregroundColor: Colors.white,
+
+        onPressed: () {},
+
+        child: const Icon(Icons.add),
+      ),
+
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(16),
+
+        padding: const EdgeInsets.symmetric(
+          horizontal: 25,
+          vertical: 8,
         ),
 
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color.fromARGB(255, 148, 52, 45),
-          foregroundColor: Colors.white,
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_) => const IsiPlaylist()));
-          }, 
-          child: const Icon(Icons.add)
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          border: Border.all(
+            color: Colors.black,
+            width: 2,
           ),
 
-        bottomNavigationBar: Container(
-          margin: const EdgeInsets.all(16),
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            border: Border.all(color: Colors.black, width: 2),
-            borderRadius: BorderRadius.circular(20),
-          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
 
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-              // HOME
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
-                padding: EdgeInsets.all(
-                  selectedIndex == 0 ? 8 : 2),
-                decoration: BoxDecoration(
-                  color: selectedIndex == 0 ? Colors.black12 : Colors.transparent,
+          children: [
 
-                  borderRadius: BorderRadius.circular(12),
+            // HOME
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+
+              padding: EdgeInsets.all(
+                selectedIndex == 0 ? 8 : 2,
+              ),
+
+              decoration: BoxDecoration(
+                color: selectedIndex == 0
+                    ? Colors.black12
+                    : Colors.transparent,
+
+                borderRadius: BorderRadius.circular(12),
+              ),
+
+              child: IconButton(
+                onPressed: () {
+                  setState(() => selectedIndex = 0);
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const AlbumPage(),
+                    ),
+                  );
+                },
+
+                icon: const Icon(
+                  Icons.home_outlined,
+                  size: 20,
+                  color: Colors.black,
                 ),
+              ),
+            ),
 
-                child: IconButton(
-                  onPressed: () {
-                    setState(() => selectedIndex = 0);
+            // PLAYLIST ACTIVE
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOutBack,
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const AlbumPage(),
-                      ),
-                    );
-                  },
+              padding: EdgeInsets.all(
+                selectedIndex == 1 ? 9 : 3,
+              ),
 
-                  icon: const Icon(
-                    Icons.home_outlined,
-                    size: 20,
-                    color: Colors.black,
-                  ),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 148, 52, 45),
+                shape: BoxShape.circle,
+
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
                 ),
               ),
 
-              // TOP ART ACTIVE
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeOutBack,
+              child: IconButton(
+                onPressed: () {
+                  setState(() => selectedIndex = 1);
+                },
 
-                padding: EdgeInsets.all(
-                  selectedIndex == 1 ? 9 : 3,
-                ),
-
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 148, 52, 45),
-                  shape: BoxShape.circle,
-
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                ),
-
-                child: IconButton(
-                  onPressed: () {
-                    setState(() => selectedIndex = 1);
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const JenisPlaylist(),
-                      ),
-                    );
-                  },
-
-                  icon: const Icon(
-                    Icons.group_add_outlined,
-                    size: 20,
-                    color: Colors.black,
-                  ),
+                icon: const Icon(
+                  Icons.group_add_outlined,
+                  size: 20,
+                  color: Colors.black,
                 ),
               ),
+            ),
 
-              // MUSIC
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
+            // MUSIC
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
 
-                padding: EdgeInsets.all(
-                  selectedIndex == 2 ? 8 : 2,
-                ),
-
-                decoration: BoxDecoration(
-                  color: selectedIndex == 2
-                      ? Colors.black12
-                      : Colors.transparent,
-
-                  borderRadius: BorderRadius.circular(12),
-                ),
-
-                child: IconButton(
-                  onPressed: () {
-                    setState(() => selectedIndex = 2);
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const Playsong(),
-                      ),
-                    );
-                  },
-
-                  icon: const Icon(
-                    Icons.music_note_outlined,
-                    size: 20,
-                    color: Colors.black,
-                  ),
-                ),
+              padding: EdgeInsets.all(
+                selectedIndex == 2 ? 8 : 2,
               ),
 
-              // PROFILE
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 250),
+              decoration: BoxDecoration(
+                color: selectedIndex == 2
+                    ? Colors.black12
+                    : Colors.transparent,
 
-                padding: EdgeInsets.all(
-                  selectedIndex == 3 ? 8 : 2,
-                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
 
-                decoration: BoxDecoration(
-                  color: selectedIndex == 3
-                      ? Colors.black12
-                      : Colors.transparent,
+              child: IconButton(
+                onPressed: () {
+                  setState(() => selectedIndex = 2);
 
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const Playsong(),
+                    ),
+                  );
+                },
 
-                child: IconButton(
-                  onPressed: () {
-                    setState(() => selectedIndex = 3);
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const ProfilePage(),
-                      ),
-                    );
-                  },
-
-                  icon: const Icon(
-                    Icons.account_circle_outlined,
-                    size: 20,
-                    color: Colors.black,
-                  ),
+                icon: const Icon(
+                  Icons.music_note_outlined,
+                  size: 20,
+                  color: Colors.black,
                 ),
               ),
-            ],
-          ),
+            ),
+
+            // PROFILE
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+
+              padding: EdgeInsets.all(
+                selectedIndex == 3 ? 8 : 2,
+              ),
+
+              decoration: BoxDecoration(
+                color: selectedIndex == 3
+                    ? Colors.black12
+                    : Colors.transparent,
+
+                borderRadius: BorderRadius.circular(12),
+              ),
+
+              child: IconButton(
+                onPressed: () {
+                  setState(() => selectedIndex = 3);
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ProfilePage(),
+                    ),
+                  );
+                },
+
+                icon: const Icon(
+                  Icons.account_circle_outlined,
+                  size: 20,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
+}
+
+Widget playlistCard({
+  required BuildContext context,
+  required String image,
+  required String title,
+  required String artis,
+  required String durasi,
+}) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const IsiPlaylist(),
+        ),
+      );
+    },
+
+    child: Container(
+      height: 120,
+      width: double.infinity,
+      padding: const EdgeInsets.all(10),
+
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+
+        border: Border.all(
+          color: Colors.black,
+          width: 1,
+        ),
+
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF8A3E47),
+            Color(0xFFB0897E),
+          ],
+
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+
+            child: Image.asset(
+              image,
+              height: 100,
+              width: 95,
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          const SizedBox(width: 15),
+
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+              Text(
+                title,
+
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 5),
+
+              Text(
+                artis,
+
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 100),
+
+                child: Text(
+                  durasi,
+
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
 }

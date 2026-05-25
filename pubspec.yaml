@@ -63,6 +63,13 @@ flutter:
   assets:
   - assets/love pulse.jpeg
   - assets/lagu.mp3
+  - assets/taylorswift.jpg
+  - assets/boynextdoor2.jpeg
+  - assets/treasure2.jpeg
+  - assets/keshi.png
+  - assets/Nicole_(Album)_cover.png
+  - assets/lngshot.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

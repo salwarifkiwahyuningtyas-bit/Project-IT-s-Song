@@ -90,11 +90,12 @@ class _AlbumPageState extends State<AlbumPage> {
               // LIST ALBUM
               Column(
                 children: [
-                  albumItem("NIKI", 'assets/images/niki.jpg'),
-                  albumItem("KESHI", 'assets/images/keshi.jpg'),
-                  albumItem("BOYNEXTDOOR", 'assets/images/boynextdoor.jpg'),
-                  albumItem("TREASURE", 'assets/images/treasure.jpg'),
-                  albumItem("TAYLOR SWIFT", 'assets/images/taylor_swift.jpg'),
+                  albumItem("NIKI", 'assets/Nicole_(Album)_cover.png'),
+                  albumItem("KESHI", 'assets/keshi.png'),
+                  albumItem("BOYNEXTDOOR", 'assets/boynextdoor2.jpeg'),
+                  albumItem("TREASURE", 'assets/treasure2.jpeg'),
+                  albumItem("TAYLOR SWIFT", 'assets/taylorswift.jpg'),
+                  albumItem("LNGSHOT", 'assets/lngshot.jpeg')
                 ],
               ),
 
