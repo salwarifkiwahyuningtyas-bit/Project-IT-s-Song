@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/akun.dart';
 import 'package:flutter_application_2/homepage.dart';
+import 'package:flutter_application_2/likedsong.dart';
 import 'package:flutter_application_2/playlist.dart';
 import 'package:flutter_application_2/top3.dart';
 import 'playsong.dart';
@@ -134,6 +135,69 @@ class _JenisPlaylistState extends State<JenisPlaylist> {
             ),
 
             const SizedBox(height: 30),
+
+            GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => LikedSongsPage() // ganti ke halaman tujuan
+      )
+    );
+  },
+
+  child: Container(
+    margin: const EdgeInsets.symmetric(
+      horizontal: 20,
+      vertical: 10,
+    ),
+
+    padding: const EdgeInsets.symmetric(
+      horizontal: 25,
+      vertical: 15,
+    ),
+
+    decoration: BoxDecoration(
+      color: const Color(0xFFFFFEE0),
+
+      borderRadius: BorderRadius.circular(20),
+
+      border: Border.all(
+        color: Colors.black,
+        width: 1,
+      ),
+
+      boxShadow: const [
+        BoxShadow(
+          color: Colors.black26,
+          blurRadius: 4,
+          offset: Offset(2, 3),
+        ),
+      ],
+    ),
+
+    child: Row(
+      children: const [
+        Icon(
+          Icons.favorite_border,
+          size: 45,
+          color: Color.fromARGB(255, 148, 52, 45),
+        ),
+
+        SizedBox(width: 30),
+
+        Text(
+          "Liked Song",
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    ),
+  ),
+),
 
             playlistCard(
               context: context,

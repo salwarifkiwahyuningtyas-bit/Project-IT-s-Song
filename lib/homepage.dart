@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/playsong.dart';
 import 'package:flutter_application_2/akun.dart';
+import 'package:flutter_application_2/profileartist.dart';
 import 'package:flutter_application_2/top3.dart';
 
 class AlbumPage extends StatefulWidget {
@@ -199,26 +200,57 @@ class _AlbumPageState extends State<AlbumPage> {
   }
 
   Widget albumItem(String title, String imagePath) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const ProfileArtist(),
+        ),
+      );
+    },
+
+    child: Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 10,
+      ),
+
       child: Row(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(imagePath, width: 70, height: 70, fit: BoxFit.cover),
+
+            child: Image.asset(
+              imagePath,
+              width: 70,
+              height: 70,
+              fit: BoxFit.cover,
+            ),
           ),
+
           const SizedBox(width: 15),
+
           Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 15),
+              padding: const EdgeInsets.symmetric(
+                vertical: 18,
+                horizontal: 15,
+              ),
+
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF9A3B3B), Color(0xFFB96D6D)],
+                  colors: [
+                    Color(0xFF9A3B3B),
+                    Color(0xFFB96D6D),
+                  ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
+
                 borderRadius: BorderRadius.circular(20),
               ),
+
               child: Text(
                 title,
                 style: const TextStyle(
@@ -231,6 +263,7 @@ class _AlbumPageState extends State<AlbumPage> {
           ),
         ],
       ),
-    );
-  }
+    ),
+  );
+}
 }
