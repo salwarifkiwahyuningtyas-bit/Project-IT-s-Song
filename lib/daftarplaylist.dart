@@ -485,21 +485,21 @@ Widget playlistCard({
 
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 13,
+                  fontSize: 14,
                 ),
               ),
 
               const SizedBox(height: 15),
 
               Padding(
-                padding: const EdgeInsets.only(left: 100),
+                padding: const EdgeInsets.only(left: 70),
 
                 child: Text(
                   durasi,
 
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 13,
                   ),
                 ),
               ),
