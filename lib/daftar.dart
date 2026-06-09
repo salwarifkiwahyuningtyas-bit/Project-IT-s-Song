@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/homepage.dart';
 import 'package:flutter_application_2/playsong.dart';
 import 'package:flutter_application_2/lupa%20pw.dart';
 
@@ -213,7 +214,7 @@ class _DaftarState extends State<Daftar> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Playsong(),
+                          builder: (context) => const AlbumPage(),
                         ),
                       );
                     },
@@ -254,7 +255,7 @@ class _DaftarState extends State<Daftar> {
                         );
                       },
                       child: const Text(
-                        'Masuk di sini.',
+                        'Lupa Password.',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
